@@ -147,6 +147,29 @@ public ArrayList<Instruction> instructionAutRe(ArrayList<Etat> listEt)
 	}
 	return instr;
 }
+
+public Automate automateReduit()
+{
+	ArrayList<Etat> etatFinaux=new ArrayList<Etat>();//liste des etats finaux de l'automate réduit 
+	ArrayList<Etat> accessCoaccess=this.etatsAccessible();
+	ArrayList<Etat> coAccessible =this.etatsCoAccessible();
+	ArrayList<Character> alphabet=new ArrayList<Character>();
+	accessCoaccess.retainAll(coAccessible);//liste des etats accessible et coaccessible
+	
+	etatFinaux.addAll(accessCoaccess);
+	etatFinaux.retainAll(f);//faire l'intersction entre les etats finaux de l'automate et liste des etats accessible et coaccessible
+	
+	ArrayList<Instruction> instrucrtion=this.instructionAutRe(accessCoaccess);//liste des instruction de l'automate réduit 
+	for (int i=0;i<instrucrtion.size();i++) //construire l'ensemble des alphabets
+	{
+		if(!alphabet.contains(instrucrtion.get(i).getLettre()))
+			alphabet.add(instrucrtion.get(i).getLettre());
+	}
+	
+	 Automate automateReduit =new Automate(alphabet , accessCoaccess, s0,etatFinaux ,instrucrtion);
+	return  automateReduit;
+						
+}
  
 
 

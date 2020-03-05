@@ -45,7 +45,7 @@ public void setSj(Etat sj) {
 public void afficherInstruction()
 {
 	System.out.print("{ "); si.afficherEtat();
-	System.out.print(",lettre,");
+	System.out.print(","+lettre+",");
 	 sj.afficherEtat();System.out.print("}");
 }
 }

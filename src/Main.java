@@ -99,6 +99,11 @@ public class Main {
 				instr.get(m).afficherInstruction();
 
 			}
+			
+			Automate reduit=a.automateReduit();
+			reduit.afficherAutomate();
+			
+			
 	}
 
 }
