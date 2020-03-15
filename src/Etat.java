@@ -1,17 +1,17 @@
 
 public class Etat {
-char nomEtat;
+String nomEtat;
 
-public Etat(char nom)
+public Etat(String nom)
 {
 	this.nomEtat=nom;
 }
 
-public char getNomEtat() {
+public String getNomEtat() {
 	return nomEtat;
 }
 
-public void setNomEtat(char nomEtat) {
+public void setNomEtat(String nomEtat) {
 	this.nomEtat = nomEtat;
 }
 
@@ -23,9 +23,10 @@ public void afficherEtat()
 public boolean equals(Object o)
 {
 	Etat etat=(Etat) o;
-	if (this.nomEtat==etat.getNomEtat())
+	if (this.nomEtat.equals(etat.getNomEtat()))
 	return true ;
 	else return false ;
 }
 }
+
 
